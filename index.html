@@ -3,7 +3,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>gsi-dem-contour</title>
+<title>leaflet-gsi-contour</title>
 <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0" />
 <link rel="stylesheet" href="//cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
 <script src="//cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
@@ -32,13 +32,13 @@ body {
 		var map = L.map("map", L.extend({
 			minZoom : 5,
 			maxZoom : 15,
-			zoom : 10,
-			center : [ 35.6439, 139.663116 ]
+			zoom : 12,
+			center : [ 35.2856, 138.8529 ]
 		}));
 		new L.Hash(map);
 
 		L.tileLayer('http://cyberjapandata.gsi.go.jp/xyz/relief/{z}/{x}/{y}.png', {
-			"attribution" : "<a href='http://maps.gsi.go.jp/development/'>地理院タイル・オルソ画像</a>"
+			"attribution" : "<a href='http://maps.gsi.go.jp/development/'>色別標高図 (国土地理院、海域部は海上保安庁海洋情報部の資料を使用して作成)</a>"
 		}).addTo(map);
 		L.tileLayer.GSIContour().addTo(map);
 	</script>

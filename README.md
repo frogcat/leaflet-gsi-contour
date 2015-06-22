@@ -4,3 +4,9 @@
 ## Demo
 
 http://frogcat.github.io/leaflet-gsi-contour/
+
+## Dependency
+
+https://github.com/jasondavies/conrec.js
+
+
