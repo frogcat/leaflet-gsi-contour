@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>gsi-dem-contour</title>
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0" />
+<link rel="stylesheet" href="//cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+<script src="//cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+<script src="//cdn.rawgit.com/mlevans/leaflet-hash/master/leaflet-hash.js"></script>
+<script src="//cdn.rawgit.com/jasondavies/conrec.js/master/conrec.js"></script>
+<script src="leaflet-gsi-contour.js"></script>
+<style>
+body {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+#map {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+</style>
+</head>
+<body>
+	<div id="map"></div>
+	<script>
+		var map = L.map("map", L.extend({
+			minZoom : 5,
+			maxZoom : 15,
+			zoom : 10,
+			center : [ 35.6439, 139.663116 ]
+		}));
+		new L.Hash(map);
+
+		L.tileLayer('http://cyberjapandata.gsi.go.jp/xyz/relief/{z}/{x}/{y}.png', {
+			"attribution" : "<a href='http://maps.gsi.go.jp/development/'>地理院タイル・オルソ画像</a>"
+		}).addTo(map);
+		L.tileLayer.GSIContour().addTo(map);
+	</script>
+</body>
+</html>
+
